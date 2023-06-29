@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Management</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <style>
+        .button {
+            display: block;
+            padding: 10px 20px;
+            background-color: #4CAF70;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .button:hover {
+            background-color: #000;
+        }
+    </style>        
+</head>
+<body>
+        <h1>Restaurant Management</h1>
+        <button class="button" onclick="location.href='/ingredients'">Ingredient list</button>
+        <button class="button" onclick="location.href='/dishs?page=1'">Dish list</button>
+        <button class="button" onclick="location.href='/dish_ingredients?page=1'">Dish ingredient list</button>
+        <button class="button" onclick="location.href='/origins?page=1'">Origin list</button>
+        <button class="button" onclick="location.href='/dish_origins?page=1'">Dish origin list</button>
+        <button class="button" onclick="location.href='/categorys?page=1'">Category list</button>
+        <button class="button" onclick="location.href='/dish_categorys?page=1'">Dish category list</button>
+    </body>
+</body>
+</html>
