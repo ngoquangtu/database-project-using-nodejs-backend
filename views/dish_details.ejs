@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Restaurant Database</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/touch-icon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="vendor/aos/aos.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-clock d-flex align-items-center"><span>Open Hours: Only Thursday (12:30 PM - 03:00 PM)</span></i>
+        <i class="bi bi-geo-alt d-flex align-items-center ms-4"><span> Location: Room 305, Building D8 - HUST</span></i>
+      </div>
+      <div class="languages d-none d-md-flex align-items-center">
+        <ul>
+          <li>En</li>
+          <li><a href="#">Vi</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+   <!-- ======= Header ======= -->
+   <header id="header" class="fixed-top d-flex align-items-cente">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+      <h1 class="logo me-auto me-lg-0"><a href="/">Restaurant</a></h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/#home">Home</a></li>
+          <li><a class="nav-link scrollto" href="/#about">About</a></li>
+          <li><a class="nav-link scrollto" href="/#chefs">Chefs</a></li>
+          <li><a class="nav-link scrollto" href="/menu">Menu</a></li>
+          <li><a class="nav-link scrollto" href="/ingredients">Our Ingredients</a></li>
+          <li><a class="nav-link scrollto" href="/#origin">Diverse Dishes</a></li>
+          <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+      <a href="/search_menu" class="search-menu-btn scrollto d-none d-lg-flex">Search Menu</a>
+    </div>
+  </header><!-- End Header -->
+
+    
+<main id="main">
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Dish Details</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/menu">Menu</a></li>
+            <li>Dish Details </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  
+    <section id="dish-detail_info" class="menu section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Menu</h2>
+          <p>Dish Detail</p>
+        </div>
+    
+        <div class="dish-detail-info container" data-aos="fade-up" data-aos-delay="200">
+          <% if (dish_detail) { %>
+            <div class="image-container<%= dish_detail.available === 0 ? ' unavailable' : '' %>">
+              <img src="img/menu/<%= dish_detail.dish_image_url %>" class="dish-image<%= dish_detail.available === 0 ? ' unavailable' : '' %>" alt="">
+              <% if (dish_detail.available === 0) { %>
+                <span class="out-of-stock">OUT-OF-STOCK</span>
+              <% } %>
+            </div>
+            <div class="dish-content">
+              <h2 class="dish-name"><%= dish_detail.dish_name %></h2>
+              <div class="dish-info">
+                <p>Dish ID: <strong><%= dish_detail.dish_id %></strong></p>
+                <p>Price unit: <strong><%= dish_detail.price_unit %></strong></p>
+                <p>Origin: <strong><%= dish_detail.origins %></strong></p>
+                <p>Category: <strong><%= dish_detail.categorys %></strong></p>
+                <p>Ingredients: <strong><a href="/ingredients"><%= dish_detail.ingredients %></a></strong></p>
+                <p>Available: <strong><%= dish_detail.available === 1 ? 'Yes' : 'No' %></strong></p>
+              </div>
+              <div class="dish-info-bottom">
+                <span class="dish-price">$<%= dish_detail.price %></span>
+                <% if (dish_detail.available === 1) { %>
+                  <a href="#" class="order-btn">ORDER</a>
+                <% } else { %>
+                  <a href="#" class="out-of-stock-btn">OUT-OF-STOCK</a>
+                <% } %>
+              </div>
+            </div>
+          <% } else { %>
+            <p>No dish details available.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+  
+    
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Contact Us</p>
+    </div>
+  </div>
+
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6">
+        <div class="info">
+          <div class="address">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Location:</h4>
+            <p>Room 305, Building D8 - HUST</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="info">
+          <div class="open-hours">
+            <i class="bi bi-clock"></i>
+            <h4>Open Hours:</h4>
+            <p>
+              Only Thursday:<br>
+              12:30 PM - 03:00 PM
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <div class="info">
+          <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p>ninh.nd213582@sis.hust.edu.vn<br>
+               thang.lkn213588@sis.hust.edu.vn<br>
+               tu.nq213593@sis.hust.edu.vn<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+
+<footer id="footer">
+  <div class="copyright">
+    &copy; Copyright <strong><span>Database Class - AC2040E</span></strong>. All Rights Reserved
+  </div>
+  <div class="credits">
+    Designed by <strong><span>Ninh, Thăng, Tú</span></strong>
+  </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="vendor/aos/aos.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/glightbox/js/glightbox.min.js"></script>
+<script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="temp.js"></script>
+
+</body>
+
+</html>

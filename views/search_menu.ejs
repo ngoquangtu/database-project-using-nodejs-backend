@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Restaurant Database</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/touch-icon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="vendor/aos/aos.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  
+  <!-- Template Main CSS File -->
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-clock d-flex align-items-center"><span>Open Hours: Only Thursday (12:30 PM - 03:00 PM)</span></i>
+        <i class="bi bi-geo-alt d-flex align-items-center ms-4"><span> Location: Room 305, Building D8 - HUST</span></i>
+      </div>
+      <div class="languages d-none d-md-flex align-items-center">
+        <ul>
+          <li>En</li>
+          <li><a href="#">Vi</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+   <!-- ======= Header ======= -->
+   <header id="header" class="fixed-top d-flex align-items-cente">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+      <h1 class="logo me-auto me-lg-0"><a href="/">Restaurant</a></h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/#home">Home</a></li>
+          <li><a class="nav-link scrollto" href="/#about">About</a></li>
+          <li><a class="nav-link scrollto" href="/#chefs">Chefs</a></li>
+          <li><a class="nav-link scrollto" href="/menu">Menu</a></li>
+          <li><a class="nav-link scrollto" href="/ingredients">Our Ingredients</a></li>
+          <li><a class="nav-link scrollto" href="/#origin">Diverse Dishes</a></li>
+          <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+      <a href="/search_menu" class="search-menu-btn scrollto d-none d-lg-flex">Search Menu</a>
+    </div>
+  </header><!-- End Header -->
+
+    
+  <main id="main">
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Search Your Menu</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Search Menu</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="search-menu" class="menu section-bg">
+      <div class="container" data-aos="fade-up">
+      <div class="filter-column">
+        <div class="section-title">
+          <h2>Menu</h2>
+          <p>Search For Your Favorite Food</p>
+        </div>
+
+        <div class="text-center">
+          <form action="/search_menu" method="get">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="form-column">
+                  <label for="category"><strong>Category:</strong></label>
+                  <select id="category" name="category" multiple style="width:300px" class="custom-select select2">
+                    <option value="">SELECT ALL</option>
+                    <% selectOptions.categories.forEach((category) => { %>
+                      <option value="<%= category.category %>"><%= category.category %></option>
+                    <% }) %>
+                  </select>
+                </div>
+                
+                <div class="form-column">
+                  <label for="ingredient"><strong>Ingredient:</strong></label>
+                  <select id="ingredient" name="ingredient" multiple style="width:300px" class="custom-select select2">
+                    <option value="">SELECT ALL</option>
+                    <% selectOptions.ingredients.forEach((ingredient) => { %>
+                      <option value="<%= ingredient.ingredient %>"><%= ingredient.ingredient %></option>
+                    <% }) %>
+                  </select>
+                </div>
+                
+                <div class="form-column">
+                  <label for="origin"><strong>Origin:</strong></label>
+                  <select id="origin" name="origin" multiple style="width:300px" class="custom-select select2">
+                    <option value="">SELECT All</option>
+                    <% selectOptions.origins.forEach((origin) => { %>
+                      <option value="<%= origin.origin %>"><%= origin.origin %></option>
+                    <% }) %>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="search-button-btn">Search</button>
+          </form>
+        </div>
+        
+        <script type="text/javascript">
+          $(document).ready(function() {
+            // Khởi tạo Select2
+            $('.select2').select2({
+              placeholder: 'Select...',
+              allowClear: true
+            });
+            // Xử lý sự kiện khi thay đổi lựa chọn
+            $('.select2').on('select2:select select2:unselect', function(e) {
+              var selectedOptions = $(this).val(); // Lấy danh sách các lựa chọn đã chọn        
+              // Xóa tất cả pills đã có
+              $(this).next().find('.select2-selection__rendered .pill').remove();       
+              // Thêm pills cho từng lựa chọn đã chọn
+              for (var i = 0; i < selectedOptions.length; i++) {
+                var optionText = $(this).find('option[value="' + selectedOptions[i] + '"]').text(); // Lấy văn bản của lựa chọn        
+                // Tạo HTML cho pill
+                var pillHtml = '<span class="pill" title="' + optionText + '">' + optionText + '<span class="pill-close" data-option="' + selectedOptions[i] + '">×</span></span>';        
+                // Thêm pill vào hộp văn bản
+                $(this).next().find('.select2-selection__rendered').append(pillHtml);
+              }
+            });        
+            // Xử lý sự kiện khi bấm nút Xóa trên pill
+            $(document).on('click', '.pill-close', function() {
+              var optionValue = $(this).data('option'); // Lấy giá trị của lựa chọn
+              var selectBox = $(this).closest('.select2'); // Tìm hộp select2 gần nhất        
+              // Bỏ chọn lựa chọn và gọi sự kiện change để cập nhật pills
+              selectBox.val(optionValue).trigger('change');
+            });
+          });
+        </script>
+        
+
+        <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+          <% search_results.forEach((result) => { %>
+            <div class="col-lg-6 menu-item<%= result.available === 0 ? ' available' : '' %>">
+              <div class="image-container">
+                <img src="img/menu/<%= result.dish_image_url %>" class="menu-img1" alt="">
+                <% if (result.available === 0) { %>
+                  <span class="out-of-stock">OUT-OF-STOCK</span>
+                <% } %>
+              </div>
+              <div class="menu-content">
+                <a href="/dishID=<%= result.dish_id %>"><%= result.dish_name %></a><span>$<%= result.price %></span>
+              </div>
+              <div class="menu-details">
+                <p>Origin:<strong> <%= result.origins %></strong></p>
+                <p>Category: <strong><%= result.categorys %></strong></p>
+                <p>Ingredients: <strong><a href="/ingredients"><%= result.ingredients %></a></strong></p>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+    
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+ <!-- ======= Contact Section ======= -->
+ <section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Contact Us</p>
+    </div>
+  </div>
+
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="info">
+          <div class="address">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Location:</h4>
+            <p>Room 305, Building D8 - HUST</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info">
+          <div class="open-hours">
+            <i class="bi bi-clock"></i>
+            <h4>Open Hours:</h4>
+            <p>
+              Only Thursday:<br>
+              12:30 PM - 03:00 PM
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info">
+          <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p>ninh.nd213582@sis.hust.edu.vn<br>
+               thang.lkn213588@sis.hust.edu.vn<br>
+               tu.nq213593@sis.hust.edu.vn<br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info">
+          <div class="phone">
+            <i class="bi bi-phone"></i>
+            <h4>Call:</h4>
+            <p>(+84) 03 6677 1508</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+
+<footer id="footer">
+  <div class="copyright">
+    &copy; Copyright <strong><span>Database Class - AC2040E</span></strong>. All Rights Reserved
+  </div>
+  <div class="credits">
+    Designed by <strong><span>Ninh, Thăng, Tú</span></strong>
+  </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="vendor/aos/aos.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/glightbox/js/glightbox.min.js"></script>
+<script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="vendor/swiper/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" type="text/javascript"></script>
+<!-- Template Animation JS File -->
+<script src="temp.js"></script>
+
+</body>
+
+</html>

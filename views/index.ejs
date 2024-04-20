@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Restaurant Database</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/touch-icon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="vendor/aos/aos.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-clock d-flex align-items-center"><span>Open Hours: Only Thursday (12:30 PM - 03:00 PM)</span></i>
+        <i class="bi bi-geo-alt d-flex align-items-center ms-4"><span> Location: Room 305, Building D8 - HUST</span></i>
+      </div>
+      <div class="languages d-none d-md-flex align-items-center">
+        <ul>
+          <li>En</li>
+          <li><a href="#">Vi</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+   <!-- ======= Header ======= -->
+   <header id="header" class="fixed-top d-flex align-items-cente">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+      <h1 class="logo me-auto me-lg-0"><a href="/">Restaurant</a></h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+            <li><a class="nav-link scrollto active" href="/#home">Home</a></li>
+            <li><a class="nav-link scrollto" href="/#about">About</a></li>
+            <li><a class="nav-link scrollto" href="/#chefs">Chefs</a></li>
+            <li><a class="nav-link scrollto" href="/menu">Menu</a></li>
+            <li><a class="nav-link scrollto" href="/ingredients">Our Ingredients</a></li>
+            <li><a class="nav-link scrollto" href="/#origin">Diverse Dishes</a></li>
+            <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+      <a href="/search_menu" class="search-menu-btn scrollto d-none d-lg-flex">Search Menu</a>
+    </div>
+  </header><!-- End Header -->
+
+      <!-- ======= Home Section ======= -->
+  <section id="home" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>Welcome to <span>Restaurant</span></h1>
+          <h2>Delivering great food more than your NYC!</h2>
+
+          <div class="btns">
+            <a href="/menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
+            <a href="/search_menu" class="btn-book animated fadeInUp scrollto">Search Menu</a>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
+        </div>
+      </div>
+    </div>
+  </section><!-- End Home -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+            <div class="about-img">
+              <img src="img/about.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>This is a fantasy restaurant for a database midterm project, designed by Ngô Quang Tú,Nguyễn Duy Ninh, Lã Kiều Ngọc Thăng. </h3>
+            <p class="fst-italic">
+              Here are some of the requests we made in this project.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> There are multiple categories of dishes (desert, main dish, snack, ....).</li>
+              <li><i class="bi bi-check-circle"></i> There are multiple origins of dishes, one dish might have multiple origins as well (north, south, japan, ...).</li>
+              <li><i class="bi bi-check-circle"></i> A dish should be made from multiple core Ingredients.</li>
+              <li><i class="bi bi-check-circle"></i> A dish should have a price, name.</li>
+              <li><i class="bi bi-check-circle"></i> Some dishes are not available in a particular time so the restaurant may want to hide them from the menu.</li>
+              <li><i class="bi bi-check-circle"></i> An ingredient should have the quantity, import date, expired date.</li>
+              <li><i class="bi bi-check-circle"></i> The counting unit of an ingredient can be kg, gram, bottle, ...</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+<!-- ======= Why Us Section ======= -->
+<section id="why-us" class="why-us">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Why Us</h2>
+      <p>How We Build Restaurant Database: <strong>Entities Set</strong></p>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-4">
+        <div class="box" data-aos="zoom-in" data-aos-delay="100">
+          <span>01</span>
+          <h4>"Dish" and "Origin"</h4>
+          <p><strong>Relationship:</strong> Originates_From.</p>
+          <p><strong>Cardinality:</strong> Many-to-Many (Many dishes can have the same origin, and one dish might have multiple origins).</p>
+          <p><strong>Description:</strong> This relationship represents the origin country or region from which a dish originates.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="box" data-aos="zoom-in" data-aos-delay="200">
+          <span>02</span>
+          <h4>"Dish" and "Ingredients"</h4>
+          <p><strong>Relationship:</strong> Contains.</p>
+          <p><strong>Cardinality:</strong> Many-to-Many (A dish can belong to multiple categories, and a category can have multiple dishes).</p>
+          <p><strong>Description:</strong> This relationship represents the categorization of dishes into different categories (e.g., appetizers, main courses, desserts).</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="box" data-aos="zoom-in" data-aos-delay="300">
+          <span>03</span>
+          <h4>"Dish" and "Category"</h4>
+          <p><strong>Relationship:</strong> Belongs_To.</p>
+          <p><strong>Cardinality:</strong> Many-to-Many (Many dishes can have the same origin, and one dish might have multiple origins).</p>
+          <p><strong>Description:</strong> This relationship represents the origin country or region from which a dish originates.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Why Us Section -->
+
+
+<!-- ======= Chefs Section ======= -->
+<section id="chefs" class="chefs">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Chefs</h2>
+      <p>Our Proffesional Chefs</p>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6">
+        <div class="member" data-aos="zoom-in" data-aos-delay="100">
+          <img src="img/chefs/chefs-1.jpg" class="img-fluid" alt="">
+          <div class="member-info">
+            <div class="member-info-content">
+              <h4>Nguyễn Duy Ninh</h4>
+              <span>Chef Tuot Luon</span>
+            </div>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="member" data-aos="zoom-in" data-aos-delay="200">
+          <img src="img/chefs/chefs-2.jpg" class="img-fluid" alt="">
+          <div class="member-info">
+            <div class="member-info-content">
+              <h4>Lã Kiều Ngọc Thăng</h4>
+              <span>Master Chef</span>
+            </div>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="member" data-aos="zoom-in" data-aos-delay="300">
+          <img src="img/chefs/chefs-3.jpg" class="img-fluid" alt="">
+          <div class="member-info">
+            <div class="member-info-content">
+              <h4>Ngô Quang Tú</h4>
+              <span>Cook</span>
+            </div>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Chefs Section -->
+
+
+<!-- ======= Origin Section ======= -->
+<section id="origin" class="origin">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Diverse Dishes</h2>
+          <p>Our Restaurant Has A Variety Of Dishes Form Different Countries Around The World</p>
+        </div>
+    </div>
+
+    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="row g-0">
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="img/menu-gallery/1.png" class="gallery-lightbox" data-gall="gallery-item">
+              <img src="img/menu-gallery/1.png" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="img/menu-gallery/2.png" class="gallery-lightbox" data-gall="gallery-item">
+              <img src="img/menu-gallery/2.png" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="img/menu-gallery/3.png" class="gallery-lightbox" data-gall="gallery-item">
+              <img src="img/menu-gallery/3.png" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="img/menu-gallery/4.png" class="gallery-lightbox" data-gall="gallery-item">
+              <img src="img/menu-gallery/4.png" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="img/menu-gallery/5.png" class="gallery-lightbox" data-gall="gallery-item">
+              <img src="img/menu-gallery/5.png" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="img/menu-gallery/7.png" class="gallery-lightbox" data-gall="gallery-item">
+              <img src="img/menu-gallery/7.png" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="img/menu-gallery/8.png" class="gallery-lightbox" data-gall="gallery-item">
+              <img src="img/menu-gallery/8.png" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="img/menu-gallery/6.png" class="gallery-lightbox" data-gall="gallery-item">
+              <img src="img/menu-gallery/6.png" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container" data-aos="fade-up">
+      <a href="/menu" class="general-buttons scrollto d-none d-lg-flex">All Dishes</a>
+      </div>
+</section>
+
+
+ <!-- ======= Contact Section ======= -->
+ <section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Contact Us</p>
+    </div>
+  </div>
+
+  <div data-aos="fade-up">
+    <iframe style="border:0; width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d105.8412949!3d21.0050034!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135add3c46cb161%3A0x463734da30e16629!2sĐại%20học%20Bách%20khoa%20Hà%20Nội%20-%20Hanoi%20University%20of%20Science%20and%20Technology!5e0!3m2!1sen!2s!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="info">
+          <div class="address">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Location:</h4>
+            <p>Room 305, Building D8 - HUST</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info">
+          <div class="open-hours">
+            <i class="bi bi-clock"></i>
+            <h4>Open Hours:</h4>
+            <p>
+              Only Thursday:<br>
+              12:30 PM - 03:00 PM
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info">
+          <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p>ninh.nd213582@sis.hust.edu.vn<br>
+               thang.lkn213588@sis.hust.edu.vn<br>
+               tu.nq213593@sis.hust.edu.vn<br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info">
+          <div class="phone">
+            <i class="bi bi-phone"></i>
+            <h4>Call:</h4>
+            <p>(+84) 03 6677 1508</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+
+<footer id="footer">
+  <div class="copyright">
+    &copy; Copyright <strong><span>Database Class - AC2040E</span></strong>. All Rights Reserved
+  </div>
+  <div class="credits">
+    Designed by <strong><span>Ninh, Thăng, Tú</span></strong>
+  </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="vendor/aos/aos.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/glightbox/js/glightbox.min.js"></script>
+<script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="temp.js"></script>
+
+</body>
+
+</html>
